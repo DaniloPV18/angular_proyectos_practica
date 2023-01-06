@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1> Listado personas</h1>
+            
+            <button class='btn btn-primary' [disabled]="deshabilitar"
+            (click)='agregarPersona()'>Agregar Persona</button>
+            <p *ngIf="mostrar; else sinPersona">{{mensaje}} con título de {{titulo}}</p>
+            <ng-template #sinPersona>
+                <p>No se ha agregado ninguna persona</p>
+            </ng-template>
+            <app-persona></app-persona>
+            
+            <label> Titulo Persona Indirecta - Property Binding</label>
+            <input type="text" class='form-control' (input)='modificarTitulo($event)'/>
+            {{titulo}}
+
+            <label> Two Way Binding</label>
+            <input type="text" class='form-control' [(ngModel)] ='titulo'/>
+            {{titulo}}
+        </div>
+    </div>
+</div>
